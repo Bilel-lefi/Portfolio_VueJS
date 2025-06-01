@@ -1,19 +1,40 @@
+/* src/style.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ----- tes couches perso ----- */
-@layer components {
-  .navlink {
-    @apply relative font-medium text-gray-600 hover:text-accent transition-colors;
-  }
-  .navlink::after {
-    content: '';
-    @apply absolute left-0 -bottom-1 h-0.5 w-0 bg-accent transition-all;
-  }
-  .navlink:hover::after { @apply w-full; }
+/* Styles globaux optionnels */
+html {
+  scroll-behavior: smooth;
+  font-family: 'Inter', sans-serif; /* Suggestion : Inter est une police sans-serif moderne et lisible */
 }
 
-@layer utilities {
-  .text-accent { @apply text-amber-600; }
+/* Styles de base pour les sections (déjà présents dans App.vue <style>, mais peuvent être centralisés ici) */
+/*
+main > section {
+  @apply py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8;
+  @apply scroll-mt-20; / * Ajustez en fonction de la hauteur de votre navbar * /
 }
+*/
+
+/* Variables CSS pour une palette de couleurs cohérente (optionnel mais recommandé) */
+:root {
+  --color-primary: 14 165 233; /* sky-500 */
+  --color-primary-dark: 2 132 199; /* sky-600 */
+  --color-primary-light: 125 211 252; /* sky-300 */
+
+  --color-text-base: theme('colors.slate.700');
+  --color-text-muted: theme('colors.slate.500');
+  --color-bg-base: theme('colors.slate.50');
+  --color-bg-alt: theme('colors.white');
+}
+
+/* Exemple d'utilisation des variables (vous devrez adapter les classes Tailwind ou @apply) */
+/*
+body {
+  color: var(--color-text-base);
+  background-color: var(--color-bg-base);
+}
+.text-primary { color: rgb(var(--color-primary)); }
+.bg-primary { background-color: rgb(var(--color-primary)); }
+*/
